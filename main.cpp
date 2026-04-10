@@ -43,8 +43,3 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
     });
 
     HyprlandAPI::addNotification(PHANDLE, "[Liquid Plastic] Hard-Linked!", CHyprColor{0.9f, 0.9f, 0.9f, 1.0f}, 5000);
-
-    return {"liquid-plastic", "High-gloss liquid plastic effects", "dog", "1.0"};
-}
-
-APICALL EXPORT void PLUGIN_EXIT() {}
