@@ -5,7 +5,7 @@ authors = ["naddog1313"]
 [liquid-plastic]
 description = "High-gloss liquid plastic and refraction effects"
 authors = ["naddog1313"]
-output = "libliquid-plastic.so"  # Make sure this has the 'lib' prefix
+output = "build/libliquid-plastic.so"
 build = [
     "cmake -B build -DCMAKE_BUILD_TYPE=Release",
     "cmake --build build"
