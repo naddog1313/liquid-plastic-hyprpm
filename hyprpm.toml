@@ -1,12 +1,13 @@
 [repository]
-name = "liquid-plastic"
-authors = ["dog"]
+name = "liquid-plastic-hyprpm"
+authors = ["naddog1313"]
 
 [liquid-plastic]
-description = "High-gloss liquid plastic and refraction effects for Hyprland"
-authors = ["dog"]
-output = "libliquid-plastic.so"
+description = "High-gloss liquid plastic and refraction effects"
+authors = ["naddog1313"]
+output = "libliquid-plastic.so"  # Make sure this has the 'lib' prefix
 build = [
     "cmake -B build -DCMAKE_BUILD_TYPE=Release",
     "cmake --build build"
 ]
+
