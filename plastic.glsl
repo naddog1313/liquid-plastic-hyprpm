@@ -3,21 +3,25 @@ varying vec2 v_texcoord;
 uniform sampler2D tex;
 uniform float refraction;
 uniform float aberration;
+uniform float roughness;
+uniform float blur;
 
 void main() {
     vec2 uv = v_texcoord;
     
-    // 1. Refraction: Warp the edges like thick molded plastic
+    // Use 'blur' to offset sampling
+    float offset = blur * 0.001;
+    
+    // Chromatic Aberration with Refraction
     vec2 dist = uv - 0.5;
     vec2 warpedUV = uv + dist * dot(dist, dist) * refraction;
 
-    // 2. Chromatic Aberration: Split colors at the edges
-    float r = texture2D(tex, warpedUV + vec2(aberration, 0.0)).r;
+    float r = texture2D(tex, warpedUV + vec2(aberration + offset, 0.0)).r;
     float g = texture2D(tex, warpedUV).g;
-    float b = texture2D(tex, warpedUV - vec2(aberration, 0.0)).b;
+    float b = texture2D(tex, warpedUV - vec2(aberration + offset, 0.0)).b;
 
-    // 3. Plastic Gloss: A sharp white "sheen"
-    float shine = smoothstep(0.48, 0.5, sin((uv.x + uv.y) * 5.0));
+    // Use 'roughness' to dull the shine
+    float shine = smoothstep(0.5 - (roughness * 0.1), 0.5, sin((uv.x + uv.y) * 10.0));
     
-    gl_FragColor = vec4(r, g, b, 1.0) + (shine * 0.1);
+    gl_FragColor = vec4(r, g, b, 1.0) + (shine * 0.15);
 }
