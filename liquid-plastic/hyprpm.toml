@@ -1,0 +1,12 @@
+[repository]
+name = "liquid-plastic"
+authors = ["dog"]
+
+[liquid-plastic]
+description = "High-gloss liquid plastic and refraction effects for Hyprland"
+authors = ["dog"]
+output = "libliquid-plastic.so"
+build = [
+    "cmake -B build -DCMAKE_BUILD_TYPE=Release",
+    "cmake --build build"
+]
