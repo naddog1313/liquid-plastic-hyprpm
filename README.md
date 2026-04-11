@@ -10,7 +10,7 @@ A high-gloss, industrial-strength "liquid plastic" effect for Hyprland v0.51+. T
 ## 🚀 Installation
 
 1. **Add the plugin**:
-   bash
+   
    hyprpm add https://github.com/naddog1313/liquid-plastic-hyprpm
    hyprpm enable liquid-plastic
 2. Example config
