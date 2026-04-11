@@ -13,3 +13,16 @@ A high-gloss, industrial-strength "liquid plastic" effect for Hyprland v0.51+. T
    bash
    hyprpm add https://github.com/naddog1313/liquid-plastic-hyprpm
    hyprpm enable liquid-plastic
+2. Example config
+3. plugin {
+    liquid-plastic {
+        refraction:strength = 0.05
+        refraction:roughness = 0.5
+        blur:strength = 2
+        aberration:strength = 0.05
+    }
+}
+
+# This is the "on" switch for the visual warping
+windowrulev2 = plugin:liquid-plastic:shader, class:.*
+also YOU MUST HAVE BLUR TRUE IN YOUR DECORATION AND PASSES AT 3 Then you are good :)
